@@ -1,0 +1,17 @@
+#三井住友信託銀行プログラミングコンテスト2019 D - Lucky PIN
+N = int(input())
+S = str(input())
+count = 0
+for n in range (0, 1000):
+  i = int(n / 100)
+  j = int(n / 10) % 10
+  k = n % 10
+  i_firstindex = S.find(str(i))
+  if i_firstindex != -1:
+    k_lastindex = S.rfind(str(k))
+    if k_lastindex != -1:
+      if i_firstindex < k_lastindex:
+        q = S.find(str(j),i_firstindex+1,k_lastindex)
+        if q != -1:
+          count += 1
+print(count)
